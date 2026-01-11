@@ -12,4 +12,14 @@ This repository contains:
 - Component definitions
 - Example UI JSON files
 
+## Below is the layout hierarchy of layout
+node (Column)
+ ├── Text
+ ├── Row
+ │   ├── Text
+ │   └── Button
+ └── Column
+     └── TextField
+
+
 ⚠️ This repository does NOT contain runtime code.

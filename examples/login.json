@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema/v1/schema.json",
+  "schemaVersion": 1,
+  "node": {
+    "type": "Column",
+    "children": [
+      { "type": "Text", "text": "Login" },
+      { "type": "TextField", "id": "email", "hint": "Email" },
+      {
+        "type": "Button",
+        "text": "Submit",
+        "action": { "type": "submit" }
+      }
+    ]
+  }
+}
+
+

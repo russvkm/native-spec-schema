@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nativespec.dev/schema/v1",
+  "title": "NativeSpec UI Schema v1",
+  "type": "object",
+
+  "required": ["schemaVersion", "node"],
+
+  "properties": {
+    "$schema": { "type": "string" },
+
+    "schemaVersion": {
+      "const": 1,
+      "description": "NativeSpec schema version"
+    },
+
+    "node": {
+      "$ref": "#/$defs/node"
+    }
+  },
+
+  "additionalProperties": false,
+
+  "$defs": {
+    "node": {
+      "oneOf": [
+        { "$ref": "#/$defs/layout" },
+        { "$ref": "#/$defs/text" },
+        { "$ref": "#/$defs/button" },
+        { "$ref": "#/$defs/textField" }
+      ]
+    },
+
+    "layout": {
+      "type": "object",
+      "required": ["type", "children"],
+      "properties": {
+        "type": { "enum": ["Column", "Row", "Box"] },
+        "padding": { "type": "integer", "minimum": 0 },
+        "children": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/node" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "text": {
+      "type": "object",
+      "required": ["type", "text"],
+      "properties": {
+        "type": { "const": "Text" },
+        "text": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+
+    "button": {
+      "type": "object",
+      "required": ["type", "text"],
+      "properties": {
+        "type": { "const": "Button" },
+        "text": { "type": "string" },
+        "action": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "enum": ["submit", "navigate", "log"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "textField": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "const": "TextField" },
+        "id": { "type": "string", "minLength": 1 },
+        "hint": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
