@@ -8,9 +8,6 @@
 
   "properties": {
     "$schema": { "type": "string" },
-
-    
-
     "schemaVersion": {
       "const": 1,
       "description": "NativeSpec schema version"
