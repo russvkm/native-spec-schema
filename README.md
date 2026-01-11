@@ -13,13 +13,7 @@ This repository contains:
 - Example UI JSON files
 
 ## Below is the layout hierarchy of layout
-node (Column)
- ├── Text
- ├── Row
- │   ├── Text
- │   └── Button
- └── Column
-     └── TextField
+![alt text](image.png)
 
 
 ⚠️ This repository does NOT contain runtime code.
