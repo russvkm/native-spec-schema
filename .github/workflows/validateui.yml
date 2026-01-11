@@ -9,14 +9,13 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Validate JSON against Schema
-        uses: vanekj/validate-json-action@v1
+      - name: Validate UI JSON examples
+        uses: vanekj/validate-json-action@v1.2.0
         with:
-          # Path to your schema file
-          schema: ./schema/v1/schema.json
-          # Glob pattern for your UI JSON files
-          pattern: ./examples/*.json
+          schema: schema/v1/schema.json
+          pattern: examples/*.json
